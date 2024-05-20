@@ -51,7 +51,7 @@ public class CreateUser extends JFrame {
 	 */
 	public CreateUser() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 479, 350);
+		setBounds(100, 100, 539, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -103,15 +103,15 @@ public class CreateUser extends JFrame {
 					String passconf = String.valueOf(textfield_conf_senha.getPassword());
 
 					if (!pass.equals(passconf)) {
-				        ps.close();
-				        JOptionPane.showMessageDialog(null, "Erro 01 : As senhas fornecidas não são identicas");
-				    } else if (!NormasEsc.REGEX_EMAIL_VALIDO(email_user)) {
-				        ps.close();
-				        JOptionPane.showMessageDialog(null, "Erro 02 : Email fornecido é inválido");
-				    } else if (!NormasEsc.REGEX_USER_VALIDO(user_name)) {
-				        ps.close();
-				        JOptionPane.showMessageDialog(null, "Erro 03 : Usuário precisa conter pelo menos um numero e caracter especial (-, _ ou %)");
-				    }
+					    ps.close();
+					    JOptionPane.showMessageDialog(null, "Erro 01 : As senhas fornecidas não são identicas");
+					} else if (!NormasEsc.REGEX_EMAIL_VALIDO(email_user)) {
+					    ps.close();
+					    JOptionPane.showMessageDialog(null, "Erro 02 : Email fornecido é inválido");
+					} else if (!NormasEsc.REGEX_USER_VALIDO(user_name)) {
+					    ps.close();
+					    JOptionPane.showMessageDialog(null, "Erro 03 : Usuário precisa conter pelo menos um número e caracter especial (-, _ ou %)");
+					}
 					
 					ps.execute();
 					JOptionPane.showMessageDialog(null, "Usuario criado com sucesso!");
@@ -129,55 +129,69 @@ public class CreateUser extends JFrame {
 				textfield_conf_senha.setText("");
 			}
 		});
+		
+		JLabel lblNewLabel_5 = new JLabel("*O usuário deve conter pelo menos 3 letras\r\n ou numero e pelo menos 1 caracter especial ");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 9));
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup()
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(171).addComponent(lblNewLabel))
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(45)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel_2).addComponent(lblNewLabel_1)
-										.addComponent(lblNewLabel_3).addComponent(lblNewLabel_4))
-								.addGap(28)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textfield_conf_senha, GroupLayout.DEFAULT_SIZE, 196,
-												Short.MAX_VALUE)
-										.addComponent(textfield_senha, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-										.addComponent(textfield_nome, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 196,
-												Short.MAX_VALUE)
-										.addComponent(textfield_email, Alignment.LEADING, 162, 196, Short.MAX_VALUE)
-										.addGroup(Alignment.LEADING,
-												gl_contentPane.createSequentialGroup().addComponent(btnNewButton)
-														.addPreferredGap(ComponentPlacement.RELATED, 36,
-																Short.MAX_VALUE)
-														.addComponent(btnNewButton_1)))))
-				.addGap(299)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup().addGap(22).addComponent(lblNewLabel).addGap(36)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textfield_nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(171)
+							.addComponent(lblNewLabel))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(45)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblNewLabel_2)
+										.addComponent(lblNewLabel_1)
+										.addComponent(lblNewLabel_3)
+										.addComponent(lblNewLabel_4))
+									.addGap(28)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(textfield_conf_senha, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+										.addComponent(textfield_senha, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+										.addComponent(textfield_nome, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+										.addComponent(textfield_email, 162, 250, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(btnNewButton)
+											.addPreferredGap(ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+											.addComponent(btnNewButton_1)))))))
+					.addGap(94))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(22)
+					.addComponent(lblNewLabel)
+					.addGap(11)
+					.addComponent(lblNewLabel_5)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textfield_nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_1))
-				.addGap(24)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textfield_email, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+					.addGap(24)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textfield_email, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_2))
-				.addGap(21)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textfield_senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+					.addGap(21)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textfield_senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_3))
-				.addGap(9)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textfield_conf_senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+					.addGap(9)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textfield_conf_senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_4))
-				.addPreferredGap(ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(btnNewButton)
+					.addPreferredGap(ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton)
 						.addComponent(btnNewButton_1))
-				.addGap(21)));
+					.addGap(21))
+		);
 		contentPane.setLayout(gl_contentPane);
 	}
 }
