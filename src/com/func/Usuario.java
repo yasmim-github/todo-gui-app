@@ -39,6 +39,9 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	
+	//Métodos em construção....
+	
 	//public boolean isStatus() {
 	//	return status;
 	//}
