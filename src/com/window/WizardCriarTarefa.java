@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.func.Tarefa;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -52,17 +55,19 @@ public class WizardCriarTarefa extends JFrame {
 	}
 
 	public WizardCriarTarefa() {
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(51, 52, 79));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
 		setContentPane(contentPane);
 
 		JLabel lblNewLabel = new JLabel("Criar tarefa");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
+		
 
 		JLabel lblNewLabel_1 = new JLabel("Título");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
@@ -108,8 +113,9 @@ public class WizardCriarTarefa extends JFrame {
 
 		JLabel lblNewLabel_5 = new JLabel("Descrição");
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-
 		JTextArea textArea = new JTextArea();
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
 				.createSequentialGroup()
@@ -169,5 +175,18 @@ public class WizardCriarTarefa extends JFrame {
 								.addComponent(btnNewButton_1))
 						.addContainerGap()));
 		contentPane.setLayout(gl_contentPane);
+		
+		retornaInputs(txtObrigatrio.getText(),(String) comboBox.getSelectedItem(),textField.getText(),(String) comboBox_1.getSelectedItem(),textArea.getText());
 	}
+	
+	public String[] retornaInputs(String titulo, String prioridade, String data, String etiqueta, String desc) {
+        String tTitulo = titulo;
+        String tPrioridade = (String) prioridade;
+        String tData = data; // Assuming this is where the date input is
+        String tEtiqueta = (String) etiqueta;
+        String tDesc = desc;
+        String[] valores = {tTitulo, tPrioridade, tData, tEtiqueta, tDesc};
+        return valores;
+    }
+	
 }

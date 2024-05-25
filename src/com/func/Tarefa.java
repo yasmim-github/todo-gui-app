@@ -10,11 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import com.window.WizardCriarTarefa;
+
 public class Tarefa {
 
 	private String titulo;
 	private String prioridade;
-	private Date data = new Date(0);
+	private String data;
 	private String descricao;
 	private String etiqueta;
 	private boolean concluido;
@@ -35,11 +37,11 @@ public class Tarefa {
 		this.prioridade = prioridade;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -67,12 +69,21 @@ public class Tarefa {
 		this.concluido = concluido;
 	}
 
-	public Tarefa(String titulo, String prioridade, Date data) {
+	public Tarefa(String titulo, String prioridade, String data) {
 		this.titulo = titulo;
 		this.prioridade = prioridade;
 		this.data = data;
 	}
 
+	public Tarefa(String titulo, String prioridade, String data, String etiqueta, String descricao) {
+		this.titulo = titulo;
+		this.prioridade = prioridade;
+		this.data = data;
+		this.etiqueta = etiqueta;
+		this.descricao = descricao;
+	}
+	
+	
 	public void CriarTarefa() {
 
 		/**
@@ -82,6 +93,10 @@ public class Tarefa {
 		 * 
 		 *         A instancia da Tarefa.java será utilizada em WizardCriarTarefa.java
 		 */
+		
+		WizardCriarTarefa telacriartarefa = new WizardCriarTarefa(); // retorna com os valores definidos pelo usuário
+	
+		
 
 	}
 
