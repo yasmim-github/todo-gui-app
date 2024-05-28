@@ -13,7 +13,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.window.WizardCriarTarefa;
 
 public class Tarefa {
-
 	private String titulo;
 	private String prioridade;
 	private String data;

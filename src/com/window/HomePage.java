@@ -14,6 +14,14 @@ import javax.swing.JLabel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.Toolkit;
+import javax.swing.SwingConstants;
+import javax.swing.DropMode;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Insets;
 
 public class HomePage extends JFrame {
 
@@ -38,6 +46,8 @@ public class HomePage extends JFrame {
 	}
 
 	public HomePage() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HomePage.class.getResource("/assets/favicon.png")));
+		setTitle("TodoList");
 
 		/**
 		 * @author Yasmim de Souza Construtor da classe HomePage, quando a classe for
@@ -46,31 +56,43 @@ public class HomePage extends JFrame {
 		 */
 
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 718, 435);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(34, 47, 202));
+		menuBar.setFont(new Font("Inter", Font.PLAIN, 14));
+		menuBar.setBackground(new Color(255, 255, 255));
 		setJMenuBar(menuBar);
 
-		JButton btnNovaTarefa = new JButton("+");
+		JButton btnNovaTarefa = new JButton("Adicionar Tarefa");
+		btnNovaTarefa.setSelectedIcon(null);
+		btnNovaTarefa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNovaTarefa.setIcon(new ImageIcon(HomePage.class.getResource("/assets/plus.png")));
+		btnNovaTarefa.setFont(new Font("Inter", Font.PLAIN, 14));
 		btnNovaTarefa.setBackground(new Color(255, 255, 255));
-		btnNovaTarefa.setForeground(new Color(34, 47, 202));
+		btnNovaTarefa.setForeground(new Color(24, 24, 24));
 		menuBar.add(btnNovaTarefa);
 
-		JButton btnAcssTrfConc = new JButton("tarefas concluidas");
+		JButton btnAcssTrfConc = new JButton("Tarefas Concluidas");
+		btnAcssTrfConc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAcssTrfConc.setIcon(new ImageIcon(HomePage.class.getResource("/assets/check.png")));
+		btnAcssTrfConc.setFont(new Font("Inter", Font.PLAIN, 14));
 		btnAcssTrfConc.setBackground(new Color(255, 255, 255));
-		btnAcssTrfConc.setForeground(new Color(34, 47, 202));
+		btnAcssTrfConc.setForeground(new Color(24, 24, 24));
 		menuBar.add(btnAcssTrfConc);
 
 		txtPesquisarAlgo = new JTextField();
-		txtPesquisarAlgo.setForeground(new Color(166, 166, 215));
+		txtPesquisarAlgo.setHorizontalAlignment(SwingConstants.LEFT);
+		txtPesquisarAlgo.setFont(new Font("Inter", Font.PLAIN, 14));
+		txtPesquisarAlgo.setForeground(new Color(83, 83, 83));
 		txtPesquisarAlgo.setText("pesquisar tarefa...");
 		menuBar.add(txtPesquisarAlgo);
 		txtPesquisarAlgo.setColumns(10);
-
-		JLabel lupinha = new JLabel("🔎");
-		lupinha.setForeground(new Color(34, 47, 202));
-		menuBar.add(lupinha);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

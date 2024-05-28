@@ -8,7 +8,7 @@ public class ConectaBanco {
 	private String senha = "root";
 	private String host = "localhost";
 	private String porta  = "3306";
-	private String bd = "bd_todo";
+	private String bd = "todolist_a3";
 	
 	public Connection conectar() {
 		try {
