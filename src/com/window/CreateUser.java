@@ -2,23 +2,20 @@ package com.window;
 
 import java.awt.EventQueue;
 
-import com.func.NormasEsc;
-import com.func.ConectaBanco;
-import java.sql.*;
+import com.main.Main;
+import com.func.Usuario;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -100,63 +97,9 @@ public class CreateUser extends JFrame {
 		btnNewButton_1.setFont(new Font("Inter", Font.PLAIN, 14));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String sql_createUser = "INSERT INTO usuario(nome,email,senha) VALUES (?,?,?)";
-
-				ConectaBanco factory = new ConectaBanco();
-				
-				try (Connection c = factory.conectar()) {
-					PreparedStatement ps = c.prepareStatement(sql_createUser);
-					ps.setString(1, textfield_nome.getText());
-					ps.setString(2, textfield_email.getText());
-					ps.setString(3, String.valueOf(textfield_senha.getPassword()));
-
-					/**
-					 * @author Yasmim de Souza Para extrair uma String de um campo de senha é
-					 *         necessario o método getPassword Além disso precisamos converter pois
-					 *         getPassword() retorna char ao invés de String
-					 */
-
-					String user_name = textfield_nome.getText();
-					String email_user = textfield_email.getText();
-					String pass = String.valueOf(textfield_senha.getPassword());
-					String passconf = String.valueOf(textfield_conf_senha.getPassword());
-
-					if(pass.equals("") || passconf.equals("") || user_name.equals("") || email_user.equals("")) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "Complete os campos.");
-					} else if (!pass.equals(passconf)) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "As senhas fornecidas não são identicas");
-					} else if (!NormasEsc.REGEX_EMAIL_VALIDO(email_user)) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "Email fornecido é inválido");
-					} else if(!NormasEsc.REGEX_SENHA_VALIDA(String.valueOf(textfield_senha.getPassword()))) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "A senha precisa possuir oito digitos, uma letra maiuscula e um caractere especial e dois numeros.");
-					}
-
-					ps.execute();
-					JOptionPane.showMessageDialog(null, "Usuario criado com sucesso!");
-					System.out.println("USUARIO INSERIDO COM SUCESSO");
-					HomePage homePage = new HomePage();
-					homePage.setVisible(true);
-				}
-
-				catch (SQLException w) {
-					if (w.getErrorCode() == 1062){
-						JOptionPane.showMessageDialog(null, "Esse email já existe, faça o login.");
-					} else {
-						JOptionPane.showMessageDialog(null, "Aconteceu algo de errado, tente novamente mais tarde.");						
-					}
-				}
-
-				textfield_nome.setText("");
-				textfield_email.setText("");
-				textfield_senha.setText("");
-				textfield_conf_senha.setText("");
-
+				Usuario usuario = Main.usuario;
+				usuario.criarUsuario(textfield_nome, textfield_email, textfield_senha, textfield_conf_senha);
 			}
-
 		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

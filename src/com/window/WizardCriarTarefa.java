@@ -1,13 +1,11 @@
 package com.window;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import com.func.Tarefa;
-
+import com.main.Main;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -15,37 +13,21 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JSeparator;
-import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import net.miginfocom.swing.MigLayout;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import com.window.*;
 
 public class WizardCriarTarefa extends JFrame {
-
-	/**
-	 * @author Yasmim de Souza Classe utilizada para guiar o usuario a criar uma
-	 *         nova tarefa
-	 * 
-	 *         Traduçaõ : Wizard é um termo utilizado para se referir a aplicações
-	 *         GUI que guiam o usuário a fazer uma açõa. Como instalação de um
-	 *         app...É um esquema de projeto para realizar operações complexas com
-	 *         um método passo-a-passo
-	 */
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtObrigatrio;
-	private JTextField textField;
+	private JTextField titulo_field;
+	private JTextField data_field;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -83,29 +65,29 @@ public class WizardCriarTarefa extends JFrame {
 		lblNewLabel_1.setFont(new Font("Inter", Font.PLAIN, 14));
 		lblNewLabel_1.setForeground(new Color(24, 24, 24));
 				
-						txtObrigatrio = new JTextField();
-						txtObrigatrio.setHorizontalAlignment(SwingConstants.LEFT);
-						txtObrigatrio.setFont(new Font("Inter", Font.PLAIN, 14));
-						txtObrigatrio.setForeground(new Color(24, 24, 24));
-						txtObrigatrio.setText("*\r\n");
-						txtObrigatrio.setColumns(10);
+						titulo_field = new JTextField();
+						titulo_field.setHorizontalAlignment(SwingConstants.LEFT);
+						titulo_field.setFont(new Font("Inter", Font.PLAIN, 14));
+						titulo_field.setForeground(new Color(24, 24, 24));
+						titulo_field.setText("*\r\n");
+						titulo_field.setColumns(10);
 				
-						textField = new JTextField();
-						textField.setHorizontalAlignment(SwingConstants.LEFT);
-						textField.setFont(new Font("Inter", Font.PLAIN, 14));
-						textField.setText("*");
-						textField.setColumns(10);
+						data_field = new JTextField();
+						data_field.setHorizontalAlignment(SwingConstants.LEFT);
+						data_field.setFont(new Font("Inter", Font.PLAIN, 14));
+						data_field.setText("*");
+						data_field.setColumns(10);
 						
 								JLabel lblNewLabel_4 = new JLabel("Etiqueta");
 								lblNewLabel_4.setFont(new Font("Inter", Font.PLAIN, 14));
 								lblNewLabel_4.setForeground(new Color(24, 24, 24));
 						
-								JComboBox comboBox_1 = new JComboBox();
-								comboBox_1.setFont(new Font("Inter", Font.PLAIN, 14));
-								comboBox_1.setForeground(new Color(24, 24, 24));
-								comboBox_1
+								JComboBox etiqueta_comboBox = new JComboBox();
+								etiqueta_comboBox.setFont(new Font("Inter", Font.PLAIN, 14));
+								etiqueta_comboBox.setForeground(new Color(24, 24, 24));
+								etiqueta_comboBox
 										.setModel(new DefaultComboBoxModel(new String[] { "Trabalho", "Casa", "Estudo", "Lazer", "Compras" }));
-								comboBox_1.setMaximumRowCount(5);
+								etiqueta_comboBox.setMaximumRowCount(5);
 						
 								JLabel lblNewLabel_3 = new JLabel("Data");
 								lblNewLabel_3.setFont(new Font("Inter", Font.PLAIN, 14));
@@ -115,19 +97,17 @@ public class WizardCriarTarefa extends JFrame {
 						lblNewLabel_2.setFont(new Font("Inter", Font.PLAIN, 14));
 						lblNewLabel_2.setForeground(new Color(24, 24, 24));
 		
-				JComboBox comboBox = new JComboBox();
-				comboBox.setFont(new Font("Inter", Font.PLAIN, 14));
-				comboBox.setForeground(new Color(24, 24, 24));
-				comboBox.setModel(new DefaultComboBoxModel(new String[] { "Desejável", "Importante", "Essencial" }));
-				comboBox.setMaximumRowCount(3);
-				JTextArea txtrDescrioDaTarefa = new JTextArea();
-				txtrDescrioDaTarefa.setBackground(new Color(255, 255, 255));
-				txtrDescrioDaTarefa.setFont(new Font("Inter", Font.PLAIN, 14));
-				txtrDescrioDaTarefa.setForeground(new Color(24, 24, 24));
-				txtrDescrioDaTarefa.setText("Descrição da Tarefa");
+				JComboBox prioridade_comboBox = new JComboBox();
+				prioridade_comboBox.setFont(new Font("Inter", Font.PLAIN, 14));
+				prioridade_comboBox.setForeground(new Color(24, 24, 24));
+				prioridade_comboBox.setModel(new DefaultComboBoxModel(new String[] { "Desejável", "Importante", "Essencial" }));
+				prioridade_comboBox.setMaximumRowCount(3);
+				JTextArea descrisao_field = new JTextArea();
+				descrisao_field.setBackground(new Color(255, 255, 255));
+				descrisao_field.setFont(new Font("Inter", Font.PLAIN, 14));
+				descrisao_field.setForeground(new Color(24, 24, 24));
+				descrisao_field.setText("Descrição da Tarefa");
 				
-				retornaInputs(txtObrigatrio.getText(),(String) comboBox.getSelectedItem(),textField.getText(),(String) comboBox_1.getSelectedItem(),txtrDescrioDaTarefa.getText());
-		
 				JButton btnNewButton = new JButton("Cancelar");
 				btnNewButton.setBackground(new Color(255, 255, 255));
 				btnNewButton.setFont(new Font("Inter", Font.PLAIN, 14));
@@ -138,10 +118,21 @@ public class WizardCriarTarefa extends JFrame {
 					}
 				});
 		
-				JButton btnNewButton_1 = new JButton("Adicionar");
-				btnNewButton_1.setBackground(new Color(255, 255, 255));
-				btnNewButton_1.setFont(new Font("Inter", Font.PLAIN, 14));
-				btnNewButton_1.setForeground(new Color(24, 24, 24));
+				JButton add_tarefa = new JButton("Adicionar");
+				add_tarefa.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Tarefa tarefa = new Tarefa();
+						tarefa.CriarTarefa(titulo_field, descrisao_field, prioridade_comboBox, etiqueta_comboBox, data_field, tarefa);
+					    Main.tarefas.add(tarefa);	
+					    titulo_field.setText("");
+					    descrisao_field.setText("");
+					    data_field.setText("");
+					    HomePage.createPanelTask();
+					}
+				});
+				add_tarefa.setBackground(new Color(255, 255, 255));
+				add_tarefa.setFont(new Font("Inter", Font.PLAIN, 14));
+				add_tarefa.setForeground(new Color(24, 24, 24));
 				GroupLayout gl_contentPane = new GroupLayout(contentPane);
 				gl_contentPane.setHorizontalGroup(
 					gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -155,8 +146,8 @@ public class WizardCriarTarefa extends JFrame {
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(btnNewButton)
 									.addPreferredGap(ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
-									.addComponent(btnNewButton_1))
-								.addComponent(txtrDescrioDaTarefa, GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+									.addComponent(add_tarefa))
+								.addComponent(descrisao_field, GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -167,16 +158,16 @@ public class WizardCriarTarefa extends JFrame {
 											.addComponent(lblNewLabel_3)))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-										.addComponent(txtObrigatrio, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+										.addComponent(data_field, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+										.addComponent(titulo_field, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
 									.addGap(36)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addComponent(lblNewLabel_4)
 										.addComponent(lblNewLabel_2))
 									.addGap(18)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(comboBox, 0, 249, Short.MAX_VALUE)
-										.addComponent(comboBox_1, 0, 249, Short.MAX_VALUE))))
+										.addComponent(prioridade_comboBox, 0, 249, Short.MAX_VALUE)
+										.addComponent(etiqueta_comboBox, 0, 249, Short.MAX_VALUE))))
 							.addGap(99))
 				);
 				gl_contentPane.setVerticalGroup(
@@ -188,40 +179,30 @@ public class WizardCriarTarefa extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(txtObrigatrio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(titulo_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(lblNewLabel_1))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNewLabel_3)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(data_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addGap(59))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNewLabel_4)
-										.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(etiqueta_comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(prioridade_comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(lblNewLabel_2))
 									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addComponent(txtrDescrioDaTarefa, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+							.addComponent(descrisao_field, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
 							.addGap(49)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnNewButton_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(add_tarefa, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addGap(30))
 				);
 				contentPane.setLayout(gl_contentPane);
 	}
-	
-	public String[] retornaInputs(String titulo, String prioridade, String data, String etiqueta, String desc) {
-        String tTitulo = titulo;
-        String tPrioridade = (String) prioridade;
-        String tData = data; // Assuming this is where the date input is
-        String tEtiqueta = (String) etiqueta;
-        String tDesc = desc;
-        String[] valores = {tTitulo, tPrioridade, tData, tEtiqueta, tDesc};
-        return valores;
-    }
 	
 }

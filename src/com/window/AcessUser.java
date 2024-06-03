@@ -1,27 +1,18 @@
 package com.window;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import com.func.NormasEsc;
-import com.func.ConectaBanco;
 import com.func.Usuario;
-
+import com.main.Main;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Font;
@@ -73,6 +64,10 @@ public class AcessUser extends JFrame {
 		lblNewLabel_2.setForeground(new Color(24, 24, 24));
 		lblNewLabel_2.setFont(new Font("Inter", Font.PLAIN, 14));
 
+		passwordField = new JPasswordField();
+		passwordField.setForeground(new Color(24, 24, 24));
+		passwordField.setFont(new Font("Inter", Font.PLAIN, 14));
+		
 		btnCancel = new JButton("Cancelar");
 		btnCancel.setBackground(new Color(255, 255, 255));
 		btnCancel.setForeground(new Color(24, 24, 24));
@@ -89,52 +84,10 @@ public class AcessUser extends JFrame {
 		btnEntrar.setFont(new Font("Inter", Font.PLAIN, 14));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String SQL_login = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
-				ConectaBanco factory = new ConectaBanco();
-				Usuario usuario = new Usuario();
-				
-				try(Connection c = factory.conectar()){
-					PreparedStatement ps = c.prepareStatement(SQL_login);
-					
-					ps.setString(1, emailField.getText());
-					ps.setString(2, String.valueOf(passwordField.getPassword()));
-					
-					String email_user = emailField.getText();
-					String pass = String.valueOf(passwordField.getPassword());
-					
-					if(email_user.equals("") || pass.equals("")) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "Complete os campos.");
-					} else if(!NormasEsc.REGEX_EMAIL_VALIDO(email_user)) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "Email fornecido é inválido.");
-					} else if(!NormasEsc.REGEX_SENHA_VALIDA(pass)) {
-						ps.close();
-						JOptionPane.showMessageDialog(null, "A senha precisa possuir oito digitos, uma letra maiuscula e um caractere especial e dois numeros.");
-					}
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if(!rs.next()) {
-						JOptionPane.showMessageDialog(null, "Email ou senha inválidos.");
-					} else {
-						usuario.setIdentificador(rs.getInt("id_usuario"));
-						usuario.setNome(rs.getString("nome"));
-						usuario.setEmail(rs.getString("email"));
-						usuario.setSenha(rs.getString("senha"));
-						JOptionPane.showMessageDialog(null, "Você entrou no sistema.");
-						HomePage homePage = new HomePage();
-						homePage.setVisible(true);
-					}
-				} catch(SQLException error) {
-					error.printStackTrace();
-				}
+				Usuario usuario = Main.usuario;			
+				usuario.loginUsuario(emailField, passwordField);				
 			}
 		});
-
-		passwordField = new JPasswordField();
-		passwordField.setForeground(new Color(24, 24, 24));
-		passwordField.setFont(new Font("Inter", Font.PLAIN, 14));
 		
 		JLabel lblNewLabel = new JLabel("Entrar");
 		lblNewLabel.setForeground(new Color(24, 24, 24));
