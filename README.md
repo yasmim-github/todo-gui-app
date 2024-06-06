@@ -1,7 +1,7 @@
-<img width="1000" height="200" src="![Banner Frete Grátis Loja Virtual Multiuso Moderno Gradiente Rosa Azul (1)](https://github.com/yasmim-github/todo-gui-app/assets/140352606/06c2af6b-3b79-4ba8-88fb-3a3c5ea0d61b)" alt="meu-banner">
+<img width="1000" height="200" src="https://github.com/yasmim-github/todo-gui-app/assets/140352606/06c2af6b-3b79-4ba8-88fb-3a3c5ea0d61b" alt="banner">
 ![Static Badge](https://img.shields.io/badge/Java-orange) ![Static Badge](https://img.shields.io/badge/MySQL-blue)![Static Badge](https://img.shields.io/badge/Git-red)![Static Badge](https://img.shields.io/badge/Github-black)  ![Static Badge](https://img.shields.io/badge/Eclipse-D8BFD8)
 
-##Equipe :
+##Equipe:
  
 > Desenvolvedores do Projeto:
 > <a href="https://github.com/yasmim-github" target=”_blank” rel=”noneferrer”>yasmim-gihub</a> (Yasmim de Souza);
@@ -26,6 +26,5 @@ Um aplicativo desktop de organização, com a finalidade de criar tarefas. O To-
 [-] Criar tarefa;
 [-] Customizar tarefa;
 [-] Marcar tarefa como concluída;
-
 [-] Deletar tarefa;
-[x] Wizard para criar tarefa
+[x] Criar tarefa
