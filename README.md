@@ -2,18 +2,18 @@
 
 ##Equipe:
  
-> Desenvolvedores do Projeto: <br>
+> #Desenvolvedores do Projeto: <br>
 > <a href="https://github.com/yasmim-github" target=”_blank” rel=”noneferrer”>yasmim-gihub</a> (Yasmim de Souza); <br>
 > <a href="https://github.com/guisebastiao" target=”_blank” rel=”noneferrer”>guisebastiao</a> (Guilherme Sebastião); <br>
 > <a href="https://github.com/igorabatti" target="_blank" rel="noneferrer">igorabatti</a> (Igor Abatti); <br>
 > Murilo Américo. <br>
 >
-> Projetistas: <br>
-> <a href="https://github.com/igorabatti" target="_blank" rel="noneferrer">igorabatti</a> (Igor Abatti); <br>
-> Luís Fernando; <br>
-> <a href="https://github.com/guisebastiao" target=”_blank” rel=”noneferrer”>guisebastiao</a> (Guilherme Sebastião); <br>
-> Murilo Américo; <br>
+> #Projetistas: <br>
 > <a href="https://github.com/yasmim-github" target=”_blank” rel=”noneferrer”>yasmim-gihub</a> (Yasmim de Souza). <br>
+> <a href="https://github.com/guisebastiao" target=”_blank” rel=”noneferrer”>guisebastiao</a> (Guilherme Sebastião); <br>
+> <a href="https://github.com/igorabatti" target="_blank" rel="noneferrer">igorabatti</a> (Igor Abatti); <br>
+> Murilo Américo; <br>
+> Luís Fernando; <br>
 
 #TO-DO APP
 Um aplicativo desktop de organização, com a finalidade de criar tarefas. O To-Do App ele satisfaz necessidades tais como organizar as tarefas diárias e evitar o esquecimento de compromissos, evitar estresse diário com o auxílio de uma lista de tarefas e focar na gestão do tempo, com ajuda de tarefas que contém etapas. 
