@@ -1,9 +1,10 @@
 package com.main;
 
 import java.util.ArrayList;
-import com.func.Tarefa;
-import com.func.Usuario;
-import com.window.LogWin;
+
+import com.models.Tarefa;
+import com.models.Usuario;
+import com.window.TelaInicial;
 
 public class Main {
 	public static Usuario usuario;
@@ -11,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		usuario = new Usuario();
-		LogWin logWin = new LogWin();
-		logWin.setVisible(true);
-	}	
+		TelaInicial telaInicial = new TelaInicial();
+		telaInicial.setVisible(true);
+	}
 }

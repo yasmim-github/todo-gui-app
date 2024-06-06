@@ -1,9 +1,8 @@
-package com.func;
+package com.models;
 
 import java.sql.*;
 
 public class ConectaBanco {
-	
 	private String usuario = "root";
 	private String senha = "root";
 	private String host = "localhost";
@@ -21,7 +20,4 @@ public class ConectaBanco {
 			return null;
 		}
 	}
-	
-	
-	
 }
