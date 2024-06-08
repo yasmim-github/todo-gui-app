@@ -145,9 +145,11 @@ public class TarefaConteudo extends JPanel {
 		JButton excluir = new JButton("");
 		excluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Você realmente deseja excluir essa tarefa?");
 				
-				if(resposta == JOptionPane.YES_OPTION) {
+				String[] opcoes = { "Sim", "Não"};
+				int selecao = JOptionPane.showOptionDialog(null, "Deseja realmente excluir a tarefa?", "Excluir tarefa", 
+				                                                      0, 2, null, opcoes, opcoes[0]);
+				if(selecao == 0) {
 					Tarefa.excluir(getIdentificadorValue());					
 				}
 			}
