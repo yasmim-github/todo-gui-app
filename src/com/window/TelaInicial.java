@@ -52,7 +52,6 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Login signup = new Login();
 				signup.setVisible(true);
-				dispose();
 			}
 		});
 

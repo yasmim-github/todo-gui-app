@@ -142,18 +142,18 @@ public class TarefaConteudo extends JPanel {
 		editar.setFont(new Font("Inter", Font.PLAIN, 12));
 		tarefa.add(editar, "cell 6 0,alignx center,aligny center");
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton excluir = new JButton("");
+		excluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Você realmente deseja exclui essa tarefa?");
+				int resposta = JOptionPane.showConfirmDialog(null, "Você realmente deseja excluir essa tarefa?");
 				
 				if(resposta == JOptionPane.YES_OPTION) {
 					Tarefa.excluir(getIdentificadorValue());					
 				}
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/assets/delete.png")));
-		tarefa.add(btnNewButton, "cell 7 0");
+		excluir.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/assets/delete.png")));
+		tarefa.add(excluir, "cell 7 0");
 		
 		return tarefa;
 	}
