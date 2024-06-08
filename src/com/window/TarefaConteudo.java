@@ -129,7 +129,7 @@ public class TarefaConteudo extends JPanel {
 		editar.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/assets/edit.png")));
 		editar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(getTituloValue().trim().equals("") || getDescricaoValue().trim().equals("") || getDataValue().trim().equals("")) {
+				if(getTituloValue().trim().equals("") || getDataValue().trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "Complete os campos.");
 					return;
 				}
