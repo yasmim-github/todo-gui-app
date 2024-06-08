@@ -29,8 +29,8 @@ public class CriarTarefa extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CriarTarefa.class.getResource("/assets/favicon.png")));
 		setTitle("Criar Tarefa");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setSize(1280, 720);
+		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
 		setContentPane(contentPane);
