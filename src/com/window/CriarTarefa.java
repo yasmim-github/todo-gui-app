@@ -97,7 +97,7 @@ public class CriarTarefa extends JFrame {
 		JButton adicionar_tarefa = new JButton("Adicionar");
 		adicionar_tarefa.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-				if(titulo.toString().trim().equals("") || descricao.toString().trim().equals("") || data.toString().trim().equals("")) {
+				if(titulo.toString().trim().equals("") || data.toString().trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "Complete os campos.");
 					return;
 				}
