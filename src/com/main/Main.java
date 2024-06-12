@@ -12,7 +12,6 @@ public class Main {
 	public static ArrayList<Tarefa> tarefas = new ArrayList<>();
 	
 	public static void main(String[] args) {
-		Locale.setDefault(new Locale("pt", "BR"));
 		usuario = new Usuario();
 		TelaInicial telaInicial = new TelaInicial();
 		telaInicial.setVisible(true);
