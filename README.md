@@ -8,14 +8,8 @@
 > <a href="https://github.com/guisebastiao" target=”_blank” rel=”noneferrer”>guisebastiao</a> (Guilherme Sebastião); <br>
 > <a href="https://github.com/igorabatti" target="_blank" rel="noneferrer">igorabatti</a> (Igor Abatti); <br>
 > Murilo Américo. <br>
->
-> <h3>#Projetistas:</h3> <br>
->
-> <a href="https://github.com/yasmim-github" target=”_blank” rel=”noneferrer”>yasmim-gihub</a> (Yasmim de Souza). <br>
-> <a href="https://github.com/guisebastiao" target=”_blank” rel=”noneferrer”>guisebastiao</a> (Guilherme Sebastião); <br>
-> <a href="https://github.com/igorabatti" target="_blank" rel="noneferrer">igorabatti</a> (Igor Abatti); <br>
-> Murilo Américo; <br>
 > Luís Fernando; <br>
+
 
 <br>
 
